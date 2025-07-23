@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Plane, Package, Clock, MapPin, ArrowRight } from 'lucide-react';
+import womanLaptop from '@/assets/woman-laptop.jpg';
+import laptopComputer from '@/assets/laptop-computer.jpg';
 
 export const Services = () => {
   const services = [
@@ -110,31 +112,38 @@ export const Services = () => {
           ))}
         </div>
 
-        {/* Additional Services */}
-        <div className="bg-card rounded-2xl p-8 shadow-card slide-in-up">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold mb-4">Additional Services Available</h3>
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="text-center">
-                <div className="bg-secondary p-4 rounded-lg mb-3 inline-block">
+        {/* Additional Services with Images */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center slide-in-up">
+          {/* Left Content */}
+          <div>
+            <h3 className="text-3xl font-bold mb-6">Additional Services Available</h3>
+            <div className="space-y-6 mb-8">
+              <div className="flex items-start space-x-4">
+                <div className="bg-accent/10 p-3 rounded-lg">
                   <Package className="h-6 w-6 text-accent" />
                 </div>
-                <h4 className="font-semibold mb-2">Custom Packaging</h4>
-                <p className="text-sm text-muted-foreground">Professional packaging for fragile and valuable items</p>
+                <div>
+                  <h4 className="font-semibold mb-2">Custom Packaging</h4>
+                  <p className="text-muted-foreground">Professional packaging for fragile and valuable items with specialized handling protocols.</p>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="bg-secondary p-4 rounded-lg mb-3 inline-block">
+              <div className="flex items-start space-x-4">
+                <div className="bg-accent/10 p-3 rounded-lg">
                   <MapPin className="h-6 w-6 text-accent" />
                 </div>
-                <h4 className="font-semibold mb-2">Door-to-Door</h4>
-                <p className="text-sm text-muted-foreground">Complete pickup and delivery service to your location</p>
+                <div>
+                  <h4 className="font-semibold mb-2">Door-to-Door Service</h4>
+                  <p className="text-muted-foreground">Complete pickup and delivery service to your exact location for maximum convenience.</p>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="bg-secondary p-4 rounded-lg mb-3 inline-block">
+              <div className="flex items-start space-x-4">
+                <div className="bg-accent/10 p-3 rounded-lg">
                   <Clock className="h-6 w-6 text-accent" />
                 </div>
-                <h4 className="font-semibold mb-2">Express Handling</h4>
-                <p className="text-sm text-muted-foreground">Priority processing for urgent shipments</p>
+                <div>
+                  <h4 className="font-semibold mb-2">Express Handling</h4>
+                  <p className="text-muted-foreground">Priority processing for urgent shipments with dedicated handling teams.</p>
+                </div>
               </div>
             </div>
             <Button 
@@ -143,7 +152,28 @@ export const Services = () => {
               onClick={scrollToContact}
             >
               Learn More About Services
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
+          </div>
+
+          {/* Right Image */}
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-elevated">
+              <img 
+                src={womanLaptop}
+                alt="Professional woman working on laptop managing logistics operations"
+                className="w-full h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+            </div>
+            
+            {/* Floating Features Card */}
+            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-6 shadow-elevated float-animation">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-accent mb-1">24/7</p>
+                <p className="text-sm text-muted-foreground">Customer Support</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

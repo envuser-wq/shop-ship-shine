@@ -1,5 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Shield, Zap, Globe, Headphones, Star, Truck } from 'lucide-react';
+import laptopComputer from '@/assets/laptop-computer.jpg';
+import glassBuilding from '@/assets/glass-building.jpg';
 
 export const Features = () => {
   const features = [
@@ -75,41 +77,74 @@ export const Features = () => {
           ))}
         </div>
 
-        {/* Trust Section */}
-        <div className="bg-gradient-subtle rounded-2xl p-8 md:p-12 text-center slide-in-up">
-          <h3 className="text-3xl font-bold mb-6">Trusted by Thousands</h3>
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <p className="text-4xl font-bold text-accent mb-2">5000+</p>
-              <p className="text-muted-foreground">Happy Customers</p>
+        {/* Trust Section with Image */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center slide-in-up">
+          {/* Left Image */}
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-elevated transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+              <img 
+                src={glassBuilding}
+                alt="Modern office building representing our professional logistics services"
+                className="w-full h-[600px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
             </div>
-            <div>
-              <p className="text-4xl font-bold text-accent mb-2">99.8%</p>
-              <p className="text-muted-foreground">Success Rate</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold text-accent mb-2">10</p>
-              <p className="text-muted-foreground">Years Experience</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold text-accent mb-2">3</p>
-              <p className="text-muted-foreground">Office Locations</p>
+            
+            {/* Floating Office Card */}
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-elevated float-animation">
+              <div className="flex items-center space-x-4">
+                <div className="bg-accent/10 p-3 rounded-lg">
+                  <Globe className="h-6 w-6 text-accent" />
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-primary">3</p>
+                  <p className="text-sm text-muted-foreground">Global Offices</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Testimonial */}
-          <div className="max-w-2xl mx-auto">
-            <blockquote className="text-lg italic text-muted-foreground mb-4">
-              "Shop & Send has been instrumental in our business operations. Their reliability and speed 
-              have helped us maintain strong relationships with our clients across continents."
-            </blockquote>
-            <div className="flex items-center justify-center space-x-2">
-              <div className="flex space-x-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-logistics-gold text-logistics-gold" />
-                ))}
+          {/* Right Content */}
+          <div>
+            <h3 className="text-4xl font-bold mb-6">Trusted by Thousands</h3>
+            <p className="text-xl text-muted-foreground mb-8">
+              Join thousands of satisfied customers who trust us with their most important shipments 
+              across UK and Ghana.
+            </p>
+            
+            <div className="grid grid-cols-2 gap-6 mb-8">
+              <div>
+                <p className="text-4xl font-bold text-accent mb-2">5000+</p>
+                <p className="text-muted-foreground">Happy Customers</p>
               </div>
-              <span className="text-sm text-muted-foreground">— Sarah K., Business Owner</span>
+              <div>
+                <p className="text-4xl font-bold text-accent mb-2">99.8%</p>
+                <p className="text-muted-foreground">Success Rate</p>
+              </div>
+              <div>
+                <p className="text-4xl font-bold text-accent mb-2">10</p>
+                <p className="text-muted-foreground">Years Experience</p>
+              </div>
+              <div>
+                <p className="text-4xl font-bold text-accent mb-2">3</p>
+                <p className="text-muted-foreground">Office Locations</p>
+              </div>
+            </div>
+
+            {/* Testimonial */}
+            <div className="bg-gradient-subtle rounded-xl p-6">
+              <blockquote className="text-lg italic text-muted-foreground mb-4">
+                "Shop & Send has been instrumental in our business operations. Their reliability and speed 
+                have helped us maintain strong relationships with our clients across continents."
+              </blockquote>
+              <div className="flex items-center space-x-2">
+                <div className="flex space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-logistics-gold text-logistics-gold" />
+                  ))}
+                </div>
+                <span className="text-sm text-muted-foreground">— Sarah K., Business Owner</span>
+              </div>
             </div>
           </div>
         </div>
