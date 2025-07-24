@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -15,6 +15,32 @@ export const Contact = () => {
     service: '',
     message: ''
   });
+
+  // Intersection Observer for scroll animations
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+    );
+
+    const refs = [headerRef, formRef, sidebarRef];
+    refs.forEach(ref => {
+      if (ref.current) observer.observe(ref.current);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,31 +87,31 @@ export const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gradient-subtle relative overflow-hidden">
-      {/* Background decorative elements */}
+    <section ref={sectionRef} id="contact" className="py-24 bg-gradient-subtle relative overflow-hidden">
+      {/* Background decorative elements with hover effects */}
       <div className="absolute inset-0 hero-pattern opacity-30"></div>
-      <div className="absolute top-20 right-10 w-32 h-32 bg-accent/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 right-10 w-32 h-32 bg-accent/10 rounded-full blur-3xl hover-glow-1"></div>
+      <div className="absolute bottom-20 left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl hover-glow-2"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-20 slide-in-up">
-          <div className="inline-flex items-center px-4 py-2 bg-accent/10 rounded-full text-accent font-medium text-sm mb-6">
-            <Send className="w-4 h-4 mr-2" />
+        <div ref={headerRef} className="text-center mb-20 scroll-animate opacity-0 translate-y-10">
+          <div className="inline-flex items-center px-4 py-2 bg-accent/10 rounded-full text-accent font-medium text-sm mb-6 hover:bg-accent/20 hover:scale-105 transition-all duration-300 insane-hover-badge">
+            <Send className="w-4 h-4 mr-2 animate-pulse" />
             Fast & Reliable Shipping
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Get In <span className="text-accent">Touch</span>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight hover:text-accent transition-all duration-500 insane-hover-title">
+            Get In <span className="text-accent hover:animate-pulse">Touch</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed hover:text-foreground transition-all duration-300">
             Ready to ship with confidence? Our logistics experts are standing by to provide personalized quotes and handle your express delivery needs across UK and Ghana.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {/* Contact Form - Takes 2 columns */}
-          <div className="lg:col-span-2 slide-in-up">
-            <Card className="shadow-elevated border-border/50 bg-card/80 backdrop-blur-sm">
+          <div ref={formRef} className="lg:col-span-2 scroll-animate opacity-0 translate-y-10">
+            <Card className="shadow-elevated border-border/50 bg-card/80 backdrop-blur-sm insane-hover-card hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 hover:bg-card/90">
               <CardHeader className="pb-6">
                 <CardTitle className="text-3xl font-bold flex items-center">
                   <Send className="h-8 w-8 text-accent mr-3" />
@@ -183,20 +209,20 @@ export const Contact = () => {
           </div>
 
           {/* Contact Information Sidebar */}
-          <div className="space-y-6 slide-in-up">
-            <Card className="bg-gradient-accent text-white border-0 overflow-hidden relative">
+          <div ref={sidebarRef} className="space-y-6 scroll-animate opacity-0 translate-y-10">
+            <Card className="bg-gradient-accent text-white border-0 overflow-hidden relative insane-hover-support hover:scale-110 hover:rotate-1 transition-all duration-700 hover:shadow-2xl">
               <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
               <CardContent className="p-8 relative z-10">
                 <div className="text-center mb-6">
-                  <Phone className="w-12 h-12 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold mb-2">24/7 Support</h3>
-                  <p className="opacity-90 mb-6">Need immediate assistance? Our logistics experts are always ready to help.</p>
+                  <Phone className="w-12 h-12 mx-auto mb-4 hover:rotate-12 hover:scale-125 transition-all duration-300" />
+                  <h3 className="text-2xl font-bold mb-2 hover:text-yellow-300 transition-all duration-300">24/7 Support</h3>
+                  <p className="opacity-90 mb-6 hover:opacity-100 transition-all duration-300">Need immediate assistance? Our logistics experts are always ready to help.</p>
                 </div>
                 
                 <div className="space-y-4">
                   <Button 
                     variant="secondary"
-                    className="w-full bg-white/20 hover:bg-white/30 text-white border-white/30 h-12 text-base font-semibold"
+                    className="w-full bg-white/20 hover:bg-white/40 text-white border-white/30 h-12 text-base font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300 insane-hover-button"
                     asChild
                   >
                     <a href="tel:07916223257">📞 Call UK: 07916223257</a>
@@ -204,7 +230,7 @@ export const Contact = () => {
                   
                   <Button 
                     variant="secondary"
-                    className="w-full bg-white/20 hover:bg-white/30 text-white border-white/30 h-12 text-base font-semibold"
+                    className="w-full bg-white/20 hover:bg-white/40 text-white border-white/30 h-12 text-base font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300 insane-hover-button"
                     asChild
                   >
                     <a href="mailto:uk@shopandsend.co.uk">📧 Email: uk@shopandsend.co.uk</a>
