@@ -23,8 +23,8 @@ All colors MUST be HSL.
     --primary: 220 50% 10%;
     --primary-foreground: 0 0% 98%;
 
-    /* Purple brand accent from original logo */
-    --accent: 280 85% 60%;
+    /* Professional accent - Muted navy blue */
+    --accent: 220 30% 25%;
     --accent-foreground: 0 0% 98%;
 
     /* Secondary - Light grays for subtle backgrounds */
@@ -42,24 +42,24 @@ All colors MUST be HSL.
     /* Border and input colors */
     --border: 220 15% 90%;
     --input: 220 15% 90%;
-    --ring: 280 85% 60%;
+    --ring: 220 30% 25%;
 
     --radius: 0.75rem;
 
-    /* Custom logistics brand colors */
-    --logistics-blue: 220 90% 50%;
-    --logistics-purple: 280 85% 60%;
-    --logistics-gold: 45 95% 65%;
+    /* Custom professional brand colors */
+    --logistics-blue: 220 50% 40%;
+    --logistics-navy: 220 30% 25%;
+    --logistics-gray: 220 10% 50%;
     
-    /* Gradients for modern appeal */
-    --gradient-hero: linear-gradient(135deg, hsl(220 50% 10%), hsl(220 60% 15%));
-    --gradient-accent: linear-gradient(135deg, hsl(280 85% 60%), hsl(260 80% 65%));
+    /* Professional gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 50% 10%), hsl(220 40% 20%));
+    --gradient-accent: linear-gradient(135deg, hsl(220 30% 25%), hsl(220 25% 30%));
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 10% 98%));
     
-    /* Shadows for depth */
+    /* Professional shadows */
     --shadow-card: 0 4px 6px -1px hsl(220 20% 20% / 0.1), 0 2px 4px -1px hsl(220 20% 20% / 0.06);
     --shadow-elevated: 0 20px 25px -5px hsl(220 20% 20% / 0.1), 0 10px 10px -5px hsl(220 20% 20% / 0.04);
-    --shadow-purple-glow: 0 0 20px hsl(280 85% 60% / 0.3);
+    --shadow-accent-glow: 0 0 20px hsl(220 30% 25% / 0.2);
     
     /* Animation timings */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -93,11 +93,11 @@ All colors MUST be HSL.
     --popover: 220 45% 12%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 280 85% 60%;
-    --primary-foreground: 220 50% 10%;
+    --primary: 220 30% 25%;
+    --primary-foreground: 0 0% 95%;
 
-    --accent: 280 85% 60%;
-    --accent-foreground: 220 50% 10%;
+    --accent: 220 30% 25%;
+    --accent-foreground: 0 0% 95%;
 
     --secondary: 220 40% 15%;
     --secondary-foreground: 0 0% 95%;
@@ -110,16 +110,16 @@ All colors MUST be HSL.
 
     --border: 220 30% 25%;
     --input: 220 30% 25%;
-    --ring: 280 85% 60%;
+    --ring: 220 30% 25%;
     
     --sidebar-background: 220 50% 8%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 280 85% 60%;
-    --sidebar-primary-foreground: 220 50% 10%;
+    --sidebar-primary: 220 30% 25%;
+    --sidebar-primary-foreground: 0 0% 95%;
     --sidebar-accent: 220 40% 15%;
     --sidebar-accent-foreground: 0 0% 90%;
     --sidebar-border: 220 30% 25%;
-    --sidebar-ring: 280 85% 60%;
+    --sidebar-ring: 220 30% 25%;
     
     /* Dark mode specific gradients */
     --gradient-hero: linear-gradient(135deg, hsl(220 50% 8%), hsl(220 60% 12%));
@@ -135,23 +135,6 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-  }
-  
-  /* Custom scrollbar for modern look */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    @apply bg-muted;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    @apply bg-accent rounded-full;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-accent/80;
   }
 }
 
@@ -198,20 +181,20 @@ All colors MUST be HSL.
     }
   }
   
-  /* Purple glow hover effect */
+  /* Professional hover effect */
   .glow-hover {
     transition: var(--transition-smooth);
   }
   
   .glow-hover:hover {
-    box-shadow: var(--shadow-purple-glow);
+    box-shadow: var(--shadow-accent-glow);
     transform: translateY(-2px);
   }
   
   /* Hero background pattern */
   .hero-pattern {
     background-image: 
-      radial-gradient(circle at 20% 50%, hsl(280 85% 60% / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, hsl(220 90% 50% / 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 20% 50%, hsl(220 30% 25% / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(220 50% 40% / 0.05) 0%, transparent 50%);
   }
 }

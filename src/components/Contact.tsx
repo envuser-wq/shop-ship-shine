@@ -168,7 +168,7 @@ export const Contact = () => {
 
                   <Button 
                     type="submit"
-                    className="w-full h-14 bg-gradient-accent hover:shadow-purple-glow transition-all duration-300 text-lg font-semibold"
+                    className="w-full h-14 bg-gradient-accent hover:shadow-accent-glow transition-all duration-300 text-lg font-semibold"
                   >
                     Get Free Quote & Track Your Shipment
                     <Send className="ml-3 h-6 w-6" />
